@@ -118,4 +118,15 @@ document.getElementById("inputBook").addEventListener("submit", event => {
   }
 });
 
+// Fungsi untuk menyimpan data buku pada localStorage
+function saveBooks(books) {
+  localStorage.setItem("books", JSON.stringify(books));
+}
+
+// Fungsi untuk mengambil data buku dari localStorage
+function getBooks() {
+  const books = localStorage.getItem("books");
+  return books ? JSON.parse(books) : [];
+}
+
   
