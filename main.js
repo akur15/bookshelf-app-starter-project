@@ -118,15 +118,50 @@ document.getElementById("inputBook").addEventListener("submit", event => {
   }
 });
 
-// Fungsi untuk menyimpan data buku pada localStorage
-function saveBooks(books) {
-  localStorage.setItem("books", JSON.stringify(books));
+// Fungsi untuk mencari buku
+function searchBooks(title) {
+  const books = getBooks();
+  const searchResult = books.filter(book => book.title.toLowerCase().includes(title.toLowerCase()));
+  return searchResult;
 }
 
-// Fungsi untuk mengambil data buku dari localStorage
-function getBooks() {
-  const books = localStorage.getItem("books");
-  return books ? JSON.parse(books) : [];
-}
+// Menangani submit formulir pencarian
+document.getElementById("searchBook").addEventListener("submit", event => {
+  event.preventDefault();
+  const title = document.getElementById("searchBookTitle").value;
+  const searchResult = searchBooks(title);
+  displaySearchResult(searchResult);
+});
 
+// Fungsi untuk menampilkan hasil pencarian
+function displaySearchResult(books) {
+  const incompleteBookList = document.getElementById("incompleteBookshelfList");
+  const completeBookList = document.getElementById("completeBookshelfList");
+  incompleteBookList.innerHTML = "";
+  completeBookList.innerHTML = "";
+
+  books.forEach(book => {
+    const bookElement = document.createElement("div");
+    bookElement.classList.add("book_item");
+    bookElement.setAttribute("data-bookid", book.id);
+    bookElement.setAttribute("data-testid", "bookItem");
+
+    bookElement.innerHTML = `
+      <h3 data-testid="bookItemTitle">${book.title}</h3>
+      <p data-testid="bookItemAuthor">Penulis: ${book.author}</p>
+      <p data-testid="bookItemYear">Tahun: ${book.year}</p>
+      <div>
+        <button data-testid="bookItemIsCompleteButton">${book.isComplete ? "Belum selesai dibaca" : "Selesai dibaca"}</button>
+        <button data-testid="bookItemDeleteButton">Hapus Buku</button>
+        <button data-testid="bookItemEditButton">Edit Buku</button>
+      </div>
+    `;
+
+    if (book.isComplete) {
+      completeBookList.appendChild(bookElement);
+    } else {
+      incompleteBookList.appendChild(bookElement);
+    }
+  });
+}
   
