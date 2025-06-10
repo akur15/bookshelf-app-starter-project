@@ -37,13 +37,13 @@ function generateBookObject(id, Judul, Penulis, Tahun, isCompleted) {
 
         id,
 
-        Judul,
+        title,
 
-        Penulis,
+        author,
 
-        Tahun,
+        year,
 
-        isCompleted
+        isComplete,
 
     }
 
@@ -112,19 +112,19 @@ function makeBook(book) {
 
     textJudul.innerText = book.Judul;
 
-    textJudul.setAttribute('data-tesid', 'bookItemTitle');
+    textJudul.setAttribute('data-testid', 'bookItemTitle');
 
     const textPenulis = document.createElement('p');
 
     textPenulis.innerText = `Penulis: ${book.Penulis}`;
 
-    textJudul.setAttribute('data-tesid', 'bookItemAuthor');
+    textJudul.setAttribute('data-testid', 'bookItemAuthor');
 
     const textTahun = document.createElement('p');
 
     textTahun.innerText = `Tahun: ${book.Tahun}`;
 
-    textJudul.setAttribute('data-tesid', 'bookItemYear');
+    textJudul.setAttribute('data-testid', 'bookItemYear');
 
     // Bungkus informasi dalam container
 
