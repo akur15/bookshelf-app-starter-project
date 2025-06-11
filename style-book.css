@@ -146,17 +146,6 @@ button[data-testid="bookItemEditButton"]:hover {
   color: #3498db;
 }
 
-.search_section {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 1;
-}
-
 @media only screen and (max-width: 768px) {
   main {
     padding: 10px;
@@ -177,4 +166,8 @@ button[data-testid="bookItemEditButton"]:hover {
   .book_item .button {
     flex-direction: column;
   }
-  button[data-testid="bookItemIsCompleteButton"], button[data-testid="bookItemDeleteButton"], button[data-testid
+  button[data-testid="bookItemIsCompleteButton"], button[data-testid="bookItemDeleteButton"], button[data-testid="bookItemEditButton"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
