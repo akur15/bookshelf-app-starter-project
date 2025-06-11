@@ -28,7 +28,7 @@ function generateBookObject(id, Judul, Penulis, Tahun, isCompleted) {
 }
 
 function addBook() {
-  const submitButton = document.getElementById('bookSubmit');
+  const submitButton = document.getElementById('bookFormSubmit');
   const Judul = document.getElementById('bookFormTitle').value;
   const Penulis = document.getElementById('bookFormAuthor').value;
   const Tahun = parseInt(document.getElementById('bookFormYear').value);
