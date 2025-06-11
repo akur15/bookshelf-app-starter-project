@@ -88,7 +88,7 @@ document.addEventListener(RENDER_EVENT, function () {
 
         const bookElement = makeBook(book);
 
-        if (book.isCompleted) {
+        if (book.isComplete) {
 
             completeBookList.append(bookElement);
 
@@ -156,7 +156,7 @@ function makeBook(book) {
 
     const completeButton = document.createElement('button');
 
-    if (book.isCompleted) {
+    if (book.isComplete) {
 
         completeButton.innerText = 'Belum selesai dibaca';
 
@@ -216,7 +216,7 @@ function toggleBookStatus(bookId) {
 
     if (bookTarget != null) {
 
-        bookTarget.isCompleted = !bookTarget.isCompleted;
+        bookTarget.isComplete = !bookTarget.isComplete;
 
         document.dispatchEvent(new Event(RENDER_EVENT));
 
