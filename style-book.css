@@ -91,7 +91,7 @@ button[type="submit"]:hover {
 }
 
 button[data-testid="bookItemIsCompleteButton"] {
-  background-color: #4CAF50;
+  background-color: #2196f3;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -100,7 +100,7 @@ button[data-testid="bookItemIsCompleteButton"] {
 }
 
 button[data-testid="bookItemIsCompleteButton"]:hover {
-  background-color: #3e8e41;
+  background-color: #1976d2;
 }
 
 button[data-testid="bookItemDeleteButton"] {
@@ -117,8 +117,8 @@ button[data-testid="bookItemDeleteButton"]:hover {
 }
 
 button[data-testid="bookItemEditButton"] {
-  background-color: #03A9F4;
-  color: #fff;
+  background-color: #ffd700;
+  color: #333;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -126,7 +126,7 @@ button[data-testid="bookItemEditButton"] {
 }
 
 button[data-testid="bookItemEditButton"]:hover {
-  background-color: #039BE5;
+  background-color: #ffc107;
 }
 
 .book_list {
