@@ -48,38 +48,28 @@ function generateBookObject(id, Judul, Penulis, Tahun, isCompleted) {
     }
 
 }
-
 function addBook() {
-
-    const Judul = document.getElementById('bookFormTitle').value;
-
-    const Penulis = document.getElementById('bookFormAuthor').value;
-
-    const Tahun = parseInt(document.getElementById('bookFormYear').value);
-
-    const isComplete = document.getElementById('bookFormIsComplete').checked;
-
-    const generatedID = generateId();
-
+  const submitButton = document.getElementById('bookSubmit');
+  const Judul = document.getElementById('bookFormTitle').value;
+  const Penulis = document.getElementById('bookFormAuthor').value;
+  const Tahun = parseInt(document.getElementById('bookFormYear').value);
+  const isComplete = document.getElementById('bookFormIsComplete').checked;
+  let generatedID;
+    if (submitButton.hasAttribute('data-bookid')) {
+    generatedID = parseInt(submitButton.getAttribute('data-bookid'));
+    const bookIndex = bookapps.findIndex(book => book.id === generatedID);
+    bookapps[bookIndex] = generateBookObject(generatedID, Judul, Penulis, Tahun, isComplete);
+    submitButton.innerText = 'Tambah Buku';
+    submitButton.removeAttribute('data-bookid');
+  } else {
+    generatedID = generateId();
     const bookObject = generateBookObject(generatedID, Judul, Penulis, Tahun, isComplete);
-
     bookapps.push(bookObject);
-
-    saveData();
-
-    document.dispatchEvent(new Event(RENDER_EVENT));
-
-    document.getElementById('bookForm').reset();
-
-      }
-document.addEventListener(RENDER_EVENT, function () {
-
-    const incompleteBookList = document.getElementById('incompleteBookList');
-
-    const completeBookList = document.getElementById('completeBookList');
-    
-
-    
+  }
+  saveData();
+  document.dispatchEvent(new Event(RENDER_EVENT));
+  document.getElementById('bookForm').reset();
+}
     // Kosongkan isi rak sebelum render ulang
 
     incompleteBookList.innerHTML = '';
