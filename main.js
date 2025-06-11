@@ -77,7 +77,9 @@ document.addEventListener(RENDER_EVENT, function () {
     const incompleteBookList = document.getElementById('incompleteBookList');
 
     const completeBookList = document.getElementById('completeBookList');
+    
 
+    
     // Kosongkan isi rak sebelum render ulang
 
     incompleteBookList.innerHTML = '';
