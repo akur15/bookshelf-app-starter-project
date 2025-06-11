@@ -7,6 +7,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: #f7f7f7;
+  line-height: 1.6;
 }
 
 header {
@@ -19,6 +20,7 @@ header {
 header h1 {
   font-size: 36px;
   font-weight: bold;
+  letter-spacing: 2px;
 }
 
 main {
@@ -28,7 +30,9 @@ main {
   padding: 20px;
 }
 
-.addbook_section {
+.addbook_section,
+.search_section,
+.book_section {
   background-color: #fff;
   padding: 20px;
   border: 1px solid #ddd;
@@ -38,7 +42,9 @@ main {
   width: 80%;
 }
 
-.addbook_section h2 {
+.addbook_section h2,
+.search_section h2,
+.book_section h2 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -84,38 +90,6 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #3e8e41;
-}
-
-.search_section {
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 80%;
-}
-
-.search_section h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.book_section {
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 80%;
-}
-
-.book_section h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
 }
 
 .book_list {
@@ -173,4 +147,14 @@ button[type="submit"]:hover {
   .book_section {
     width: 100%;
   }
+}
+
+/* Animasi */
+.book_item {
+  transition: all 00.3s ease-in-out;
+}
+
+.book_item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
