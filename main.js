@@ -37,13 +37,13 @@ function generateBookObject(id, Judul, Penulis, Tahun, isCompleted) {
 
         id,
 
-        title,
+        title: Judul,
 
-        author,
+        author: Penulis,
 
-        year,
+        year: Tahun,
 
-        isComplete,
+        isComplete: isCompleted,
 
     }
 
@@ -110,21 +110,21 @@ function makeBook(book) {
 
     const textJudul = document.createElement('h3');
 
-    textJudul.innerText = book.Judul;
+    textJudul.innerText = book.title;
 
     textJudul.setAttribute('data-testid', 'bookItemTitle');
 
     const textPenulis = document.createElement('p');
 
-    textPenulis.innerText = `Penulis: ${book.Penulis}`;
+    textPenulis.innerText = `Penulis: ${book.author}`;
 
-    textJudul.setAttribute('data-testid', 'bookItemAuthor');
+    textPenulis.setAttribute('data-testid', 'bookItemAuthor');
 
     const textTahun = document.createElement('p');
 
-    textTahun.innerText = `Tahun: ${book.Tahun}`;
+    textTahun.innerText = `Tahun: ${book.year}`;
 
-    textJudul.setAttribute('data-testid', 'bookItemYear');
+    textTahun.setAttribute('data-testid', 'bookItemYear');
 
     // Bungkus informasi dalam container
 
@@ -146,7 +146,7 @@ function makeBook(book) {
 
     container.setAttribute('data-bookid',  book.id);
 
-    container.setAttribute('data-tesid', 'bookItem');
+    container.setAttribute('data-testid', 'bookItem');
 
     // Tombol toggle
 
@@ -249,19 +249,31 @@ function editBook(bookId) {
 
     // Isi ulang form dengan data buku
 
-    document.getElementById('bookFormTitle').value = bookTarget.Judul;
+  document.getElementById('bookFormTitle').value = bookTarget.title;
+  document.getElementById('bookFormAuthor').value = bookTarget.author;
+  document.getElementById('bookFormYear').value = bookTarget.year;
+  document.getElementById('bookFormIsComplete').checked = bookTarget.isComplete;
 
-    document.getElementById('bookFormAuthor').value = bookTarget.Penulis;
+  // Tambahkan kode untuk mengubah teks tombol submit
+  const submitButton = document.getElementById('bookSubmit');
+  submitButton.innerText = 'Edit Buku';
+  submitButton.setAttribute('data-bookid', bookId);
 
-    document.getElementById('bookFormYear').value = bookTarget.Tahun;
+  // Hapus buku lama agar saat disubmit, dianggap sebagai buku baru
+  document.getElementById('bookForm').addEventListener('submit', function(event) {
+  event.preventDefault();
 
-    document.getElementById('bookFormIsComplete').checked = bookTarget.isCompleted;
+  const submitButton = document.getElementById('bookSubmit');
+  if (submitButton.innerText === 'Edit Buku') {
+    const bookId = submitButton.getAttribute('data-bookid');
+    deleteBook(parseInt(bookId));
+  }
 
-    // Hapus buku lama agar saat disubmit, dianggap sebagai buku baru
-
-    deleteBook(bookId);
-
-}
+  addBook();
+});
+  // Namun, kita tidak menghapus buku langsung di sini
+  // Kita akan menangani ini pada saat submit form
+    }
 
 document.addEventListener(RENDER_EVENT, function () {
 
