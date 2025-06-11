@@ -260,17 +260,6 @@ function editBook(bookId) {
   submitButton.setAttribute('data-bookid', bookId);
 
   // Hapus buku lama agar saat disubmit, dianggap sebagai buku baru
-  document.getElementById('bookForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  const submitButton = document.getElementById('bookSubmit');
-  if (submitButton.innerText === 'Edit Buku') {
-    const bookId = submitButton.getAttribute('data-bookid');
-    deleteBook(parseInt(bookId));
-  }
-
-  addBook();
-});
   // Namun, kita tidak menghapus buku langsung di sini
   // Kita akan menangani ini pada saat submit form
     }
