@@ -77,18 +77,13 @@ main {
   font-weight: bold;
 }
 
-button {
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  width: 150px;
-  text-align: center;
-}
-
-button[type="submit"] {
-  background-color: #4CAF50;
-  color: #fff;
 }
 
 button[type="submit"]:hover {
@@ -96,17 +91,25 @@ button[type="submit"]:hover {
 }
 
 button[data-testid="bookItemIsCompleteButton"] {
-  background-color: #2196f3;
+  background-color: #4CAF50;
   color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 button[data-testid="bookItemIsCompleteButton"]:hover {
-  background-color: #1976d2;
+  background-color: #3e8e41;
 }
 
 button[data-testid="bookItemDeleteButton"] {
   background-color: #f44336;
   color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 button[data-testid="bookItemDeleteButton"]:hover {
@@ -114,23 +117,16 @@ button[data-testid="bookItemDeleteButton"]:hover {
 }
 
 button[data-testid="bookItemEditButton"] {
-  background-color: #ffd700;
-  color: #333;
+  background-color: #03A9F4;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 button[data-testid="bookItemEditButton"]:hover {
-  background-color: #ffc107;
-}
-
-.search_section {
-  position: sticky;
-  top: 0;
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 1;
+  background-color: #039BE5;
 }
 
 .book_list {
